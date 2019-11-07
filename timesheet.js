@@ -52,8 +52,24 @@ var firebaseConfig = {
     console.log(trainStart);
     console.log(trainFrequency);
 
-    var trainStartPretty = moment.unix(trainStart).format("HH:mm"),
+    var trainTime= moment.unix(trainStart).format("HH:mm"),
 
+    var nextArrival = trainTime.text(moment(nextTrain).format("HH:mm"));
+
+    console.log(nextArrival);
+
+    var minutesAway = moment().diff(moment(trainStart,"x"), "minutes");
+    console.log(minutesAway);
+
+    var newRow = $("<tr>").append(
+      $("<td>").text(trainName),
+      $("<td>").text(trainDestination),
+      $("<td>").text(trainFrequency),
+      $("<td>").text(nextArrival),
+      $("<td>").text(minutesAway),
+    );
+
+    $("#trainSchedule-table > tbody").append(newRow);
 
 
   })
