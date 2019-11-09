@@ -41,7 +41,7 @@ var firebaseConfig = {
     $("#frequency-input").val("");
   })
 
-  database.ref().on("child-added",function(childSnapshot){
+  database.ref().on("child_added",function(childSnapshot){
     console.log(childSnapshot.val());
 
     var trainName = childSnapshot.val().name;
@@ -54,22 +54,23 @@ var firebaseConfig = {
     console.log(trainStart);
     console.log(trainFrequency);
 
-
-    var trainstartConverted = moment(trainStart, "HH:mm")
     var currentTime = moment();
+    console.log("CURRENT TIME: "+ moment(currentTime).format("hh:mm"));
+    var trainstartConverted = moment(trainStart, "HH:mm").format();
+    
     console.log("CURRENT TIME: " + moment().format("HH:mm"));
 
 
-    var diffTime = moment().diff(moment(trainstartConverted),"minute");
+    var diffTime = moment().diff(moment(trainstartConverted),"minutes");
     console.log("HERE IS THE TIME" + diffTime);
 
     var tRemainder = diffTime % trainFrequency;
     console.log(tRemainder);
 
-    var minutesAway = tFrequency - tRemainder;
+    var minutesAway = trainFrequency - tRemainder;
     console.log("MINUTES TILL TRAIN: " + minutesAway);
 
-    var nextArrival = moment().add(minutesAway, "minute");
+    var nextArrival = moment().add(minutesAway, "minutes");
     console.log("ARRIVAL TIME: " + moment(nextArrival).format("hh:mm"));
 
 
@@ -79,18 +80,25 @@ var firebaseConfig = {
 
     //console.log(nextArrival);
 
-    var minutesAway = moment().diff(moment(trainStart,"x"), "minute");
+    var minutesAway = moment().diff(moment(trainStart,"x"), "minutes");
     //console.log(minutesAway);
 
-    var newRow = $("<tr>").append(
+    // var newRow = $("<tr>").append(
+    //   $("<td>").text(trainName),
+    //   $("<td>").text(trainDestination),
+    //   $("<td>").text(trainFrequency),
+    //   $("<td>").text(nextArrival),
+    //   $("<td>").text(minutesAway),
+    // );
+
+    $("#trainSchedule-table > tbody").append(
+      $("<tr>").append(
+        $("<th scope = 'row'>"),
       $("<td>").text(trainName),
       $("<td>").text(trainDestination),
       $("<td>").text(trainFrequency),
       $("<td>").text(nextArrival),
       $("<td>").text(minutesAway),
-    );
-
-    $("#trainSchedule-table > tbody").append(newRow);
-
-
+      )
+    )
   })
