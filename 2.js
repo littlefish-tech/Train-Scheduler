@@ -18,18 +18,18 @@ var firebaseConfig = {
 
     var trainName = $("#train-name-input").val().trim();
     var trainDestination = $("#destination-input").val().trim();
-    var trainStart = moment($("#firstTrainTime-input").val().trim(), "Hmm").format("HH:mm");
+    var trainStart = moment($("#firstTrainTime-input").val().trim(), "HH:mm").format("HH:mm");
     var trainFrequency = $("#frequency-input").val().trim(); 
 
     var newTrain = {
-      name: trainName,
-      destination: trainDestination,
-      firstTrain: trainStart,
-      frequency: trainFrequency
-      
-    };
+        name: trainName,
+        destination: trainDestination,
+        firstTrain: trainStart,
+        frequency: trainFrequency
+        
+      };
 
-    database.ref().push(newTrain);
+      database.ref().push(newTrain);
     console.log(newTrain.name);
     console.log(newTrain.destination);
     console.log(newTrain.firstTrain);
@@ -72,16 +72,6 @@ var firebaseConfig = {
 
     var nextArrival = moment().add(minutesAway, "minutes").format("hh:mm");
     console.log("ARRIVAL TIME: " + moment(nextArrival).format("hh:mm"));
-
-
-    //var trainTime= moment.unix(trainStart).format("HH:mm"),
-
-    //var nextArrival = trainTime.text(moment(trainFrequency).format("HH:mm"));
-
-    //console.log(nextArrival);
-
-    //var minutesAway = moment().diff(moment(trainStart,"HH:mm"), "minutes");
-    //console.log(minutesAway);
     
     var newRow = $("<tr>").append(
     $("<td>").text(trainName),
@@ -92,13 +82,5 @@ var firebaseConfig = {
      );
 
     $("#trainSchedule-table > tbody").append(newRow);
-    //   $("<tr>").append(
-    //     $("<th scope = 'row'>"),
-    //   $("<td>").text(trainName),
-    //   $("<td>").text(trainDestination),
-    //   $("<td>").text(trainFrequency),
-    //   $("<td>").text(nextArrival),
-    //   $("<td>").text(minutesAway),
-    //   )
-    // )
+
   })
