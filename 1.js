@@ -83,22 +83,22 @@ var firebaseConfig = {
     var minutesAway = moment().diff(moment(trainStart,"x"), "minutes");
     //console.log(minutesAway);
 
-    // var newRow = $("<tr>").append(
+    var newRow = $("<tr>").append(
+    $("<td>").text(trainName),
+    $("<td>").text(trainDestination),
+    $("<td>").text(trainFrequency),
+    $("<td>").text(nextArrival),
+    $("<td>").text(minutesAway),
+     );
+
+    $("#trainSchedule-table > tbody").append(newRow);
+    //   $("<tr>").append(
+    //     $("<th scope = 'row'>"),
     //   $("<td>").text(trainName),
     //   $("<td>").text(trainDestination),
     //   $("<td>").text(trainFrequency),
     //   $("<td>").text(nextArrival),
     //   $("<td>").text(minutesAway),
-    // );
-
-    $("#trainSchedule-table > tbody").append(
-      $("<tr>").append(
-        $("<th scope = 'row'>"),
-      $("<td>").text(trainName),
-      $("<td>").text(trainDestination),
-      $("<td>").text(trainFrequency),
-      $("<td>").text(nextArrival),
-      $("<td>").text(minutesAway),
-      )
-    )
+    //   )
+    // )
   })
