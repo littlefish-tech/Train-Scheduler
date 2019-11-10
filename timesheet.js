@@ -70,7 +70,7 @@ database.ref().on("child_added",function(childSnapshot){
   var minutesAway = trainFrequency - tRemainder;
   console.log("MINUTES TILL TRAIN: " + minutesAway);
 
-  var nextArrival = moment().add(minutesAway, "minutes").format("hh:mm");
+  var nextArrival = moment().add(minutesAway, "minutes").format("hh:mm a");
   console.log("ARRIVAL TIME: " + moment(nextArrival).format("hh:mm"));
   
   var newRow = $("<tr>").append(
