@@ -1,6 +1,6 @@
 # Train-Scheduler
 
-### I really like and enjoying working on this project. During the process working on this project, I find out how are Front-end connected to the Back-end. How the time can update. The technologies really make people's like more easier.
+*I really like and enjoying working on this project. During the process working on this project, I find out how are Front-end connected to the Back-end. How the time can update. The technologies really make people's like more easier.*
 
 ### Steps when I work on this project:
 - First of all, I will need to create the outlook for the page, and I really want to make this simple.
@@ -17,11 +17,11 @@
 - jQuery
 - Firebase
 
-The image for the full screen size of the website:
+## The image for the full screen size of the website:
 ![Full size website](images/1.png)
 
-The image of the website with mobile compatible:
+## The image of the website with mobile compatible:
 ![Mobile Compatible](images/2.png)
 
-The image on my Firebase gathering all the input datas:
+## The image on my Firebase gathering all the input datas:
 ![Mobile Compatible](images/3.png)
